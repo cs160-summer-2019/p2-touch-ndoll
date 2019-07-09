@@ -49,7 +49,7 @@
 		}
 
 		.action-complete {
-			background: #ffffff;
+			background: #ff00ff;
 		}
 	</style>
 
@@ -82,9 +82,41 @@
 				</div>
 			</div>
 		</div>
-	</div>
+  </div>
 	<script>
-	  // your solution here
+    var rotate = new Hammer.Rotate();
+    var hammer = new Hammer.Manager(document.getElementById('rotate-box'));
+    hammer.add(rotate);
+    hammer.on('rotate', function(ev) {
+      $('#rotate-box').addClass('action-complete');
+    })
+    
+    var tapHammer = new Hammer(document.getElementById('tap-box'));
+    tapHammer.on('tap', function(ev) {
+      $('#tap-box').addClass('action-complete');
+    })
+    
+    var pinch = new Hammer.Pinch();
+    var hammer2 = new Hammer.Manager(document.getElementById('pinch-box'));
+    hammer2.add(pinch);
+    hammer2.on('pinch', function(ev) {
+      $('#pinch-box').addClass('action-complete');
+    })
+    
+    var pressHammer = new Hammer(document.getElementById('press-box'));
+    pressHammer.on('press', function(ev) {
+      $('#press-box').addClass('action-complete');
+    })
+    
+    var panHammer = new Hammer(document.getElementById('pan-box'));
+    panHammer.on('pan', function(ev) {
+      $('#pan-box').addClass('action-complete');
+    })
+    
+    var swipeHammer = new Hammer(document.getElementById('swipe-box'));
+    swipeHammer.on('swipe', function(ev) {
+      $('#swipe-box').addClass('action-complete');
+    })
   </script>
 </body>
 </html>
